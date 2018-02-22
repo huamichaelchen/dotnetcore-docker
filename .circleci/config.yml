@@ -1,14 +1,16 @@
 version: 2
-dependencies:
-  pre:
-    - sudo yum update
-    - sudo yum install libunwind libicu
-    - sudo yum install dotnet-sdk-2.1.4
-  override:
-    - dotnet restore
+#dependencies:
+#  pre:
+#    - sudo yum update
+#    - sudo yum install libunwind libicu
+#    - sudo yum install dotnet-sdk-2.1.4
+#  override:
+#    - dotnet restore
 
-test:
-  pre:
-    - dotnet --version
-    - dotnet pack
-
+jobs:
+  build:
+    docker:
+      - image: microsoft/dotnet:sdk
+    steps:
+      - checkout
+      - run: dotnet pack
