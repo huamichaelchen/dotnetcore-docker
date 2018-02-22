@@ -12,5 +12,5 @@ jobs:
           name: Print the Current Time
           command: date
       - run:
-        name: dotnet pack /p:PackageVersion=0.0.1 /p:Configuration=Release
+        name: dotnet pack
 
