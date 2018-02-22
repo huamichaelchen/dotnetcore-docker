@@ -1,0 +1,16 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: debian:stretch
+    steps:
+      - checkout
+      - run:
+          name: Greeting
+          command: echo Start building a sample dotnet core project.
+      - run:
+          name: Print the Current Time
+          command: date
+      - run:
+        name: dotnet pack /p:PackageVersion=0.0.1 /p:Configuration=Release
+
